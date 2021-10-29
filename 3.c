@@ -1,32 +1,31 @@
 #include <stdio.h>
 #include <stdbool.h>
-void check_order(int *b[], int x)
+void check_order(int *array_2[], int array_length_)
 {
-    int i;
-    bool t = true;
-    for (i = 0; i < x - 1; x++)
+    bool array_is_ordered = true;
+    for (int i = 0; i < array_length_ - 1; array_length_++)
     {
-        if (b[i] > b[i + 1])
+        if (array_2[i] > array_2[i + 1])
         {
-            t = false;
+            array_is_ordered = false;
             break;
         }
     }
-    if (t)
+    if (array_is_ordered)
         printf("Array is ordered\n");
     else
         printf("Array is unordered\n");
 }
 void main(void)
 {
-    int i, n;
+    int array_length;
     printf("Enter the length of the array\n");
-    scanf("%i", &n);
-    int *a[n];
-    for (i = 0; i < n; i++)
+    scanf("%i", &array_length);
+    int *array_1[array_length];
+    for (int i = 0; i < array_length; i++)
     {
         printf("Enter the value of a[%i]\n", i);
-        scanf("%i", &a[i]);
+        scanf("%i", &array_1[i]);
     }
-    check_order(a, n);
+    check_order(array_1, array_length);
 }
